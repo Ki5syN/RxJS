@@ -5,7 +5,7 @@ import render from './messageWidget';
 
 const stream$ = interval(4000).pipe(
   exhaustMap(() => {    
-    return ajax.getJSON('http://localhost:7071/messages/unread').pipe(
+    return ajax.getJSON('https://rxjs-for-backend.onrender.com/messages/unread').pipe(
       catchError(err => {        
         console.error('Ошибка бэкенда:', err);
         return of({ messages: [] });
